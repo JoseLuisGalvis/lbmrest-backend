@@ -6,17 +6,12 @@ const openai = new OpenAI({
 });
 
 export default async function handler(req, res) {
-  // Configurar CORS
-  const allowedOrigins = [
-    "http://localhost:5173",
-    "https://labuenamesarestaurant.vercel.app",
-  ];
-
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Añadimos GET aquí
+  // ✅ SIEMPRE setear headers, sin condiciones
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://labuenamesarestaurant.vercel.app"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") {
