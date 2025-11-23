@@ -2,11 +2,11 @@
   "version": 2,
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/chat",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "https://labuenamesarestaurant.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
@@ -14,7 +14,11 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
+          "value": "Content-Type"
+        },
+        {
+          "key": "Access-Control-Max-Age",
+          "value": "86400"
         }
       ]
     }
