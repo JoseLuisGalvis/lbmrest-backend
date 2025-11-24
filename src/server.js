@@ -8,7 +8,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://labuenamesarestaurant.vercel.app",
+    ],
+  })
+);
 app.use(express.json());
 
 // Ruta raíz
@@ -30,5 +37,5 @@ app.use((req, res) => {
 
 // Init server
 app.listen(PORT, () => {
-  console.log(`🔥 Servidor activo en http://localhost:${PORT}`);
+  console.log(`🔥 Servidor activo en el puerto ${PORT}`);
 });
